@@ -1,12 +1,34 @@
+source: source
+
+# Site Details
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 baseurl: "" # the subpath of your site, e.g. /blog
 title: "" # the name of your site, e.g. ACME Corp.
 
-source: source
-
+# SASS
+sass:
+  style: compressed
+  sourcemap: never
 
 # Jekyll Collections
+collections_dir: collections
+
 collections:
+  posts:
+    permalink: /:title/
   pages:
-    output: true # Set to render files in _pages folder
-    permalink: /:title/ # Set the format of the permalink by default 
+    output: true
+    permalink: /:title/
+  redirect:
+    output: true
+    noindex: true
+    permalink: /:title/
+
+# Defaults
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: "post"
